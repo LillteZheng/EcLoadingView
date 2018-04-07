@@ -1,20 +1,20 @@
 
-ÕâÊÇÒ»¸ö·â×°ºÃµÄ loading ¹¤¾ß¿â£¬ÄÚÖÃÁË³£¼ûÁË¼ÓÔØ¶¯»­£¬Ä¿Ç°ÕıÔÚÌí¼ÓÖĞ¡£¡£¡£¡£
+è¿™æ˜¯ä¸€ä¸ªå°è£…å¥½çš„ loading å·¥å…·åº“ï¼Œå†…ç½®äº†å¸¸è§äº†åŠ è½½åŠ¨ç”»ï¼Œç›®å‰æ­£åœ¨æ·»åŠ ä¸­ã€‚ã€‚ã€‚ã€‚
 
 
 
-**µÚÒ»ÖÖ,·Â¶öÁËÂğ¼ÓÔØ¶¯»­**
+**ç¬¬ä¸€ç§,ä»¿é¥¿äº†å—åŠ è½½åŠ¨ç”»**
 
 ![image](https://github.com/LillteZheng/EcLoadingView/raw/master/gif/jump.gif)
 
-**µÚ¶şÖÖ£¬·ÂÄ¢¹½½Ö¼ÓÔØ¶¯»­**
+**ç¬¬äºŒç§ï¼Œä»¿è˜‘è‡è¡—åŠ è½½åŠ¨ç”»**
 
-![image](https://github.com/LillteZheng/ViewPagerHelper/raw/master/gif/people.gif)
+![image](https://github.com/LillteZheng/EcLoadingView/raw/master/gif/people.gif)
 
 
-## **ÔõÃ´ÑùÊ¹ÓÃ**
+## **æ€ä¹ˆæ ·ä½¿ç”¨**
 
-µÚÒ»ÖÖ xml ÅäÖÃ , ÆäÖĞ ec_jump_bitmap_array ÊÇÌøµÄÍ¼Æ¬£º
+ç¬¬ä¸€ç§ xml é…ç½® , å…¶ä¸­ ec_jump_bitmap_array æ˜¯è·³çš„å›¾ç‰‡ï¼š
 ```
  <com.zhengsr.ecloadinglib.view.EcJumpLoadingView
         android:id="@+id/ecloadview"
@@ -27,7 +27,7 @@
         />
 ``` 
 
-µÚ¶şÖÖ xml ÅäÖÃ , ÆäÖĞ ec_bitmap_anim_list Í¼Æ¬µÄ¶¯»­£º
+ç¬¬äºŒç§ xml é…ç½® , å…¶ä¸­ ec_bitmap_anim_list å›¾ç‰‡çš„åŠ¨ç”»ï¼š
 ```
 <com.zhengsr.ecloadinglib.view.EcBitmapLoadingView
         android:id="@+id/ecbitmaploadview"
@@ -39,6 +39,6 @@
         app:ec_bitmap_anim_list="@drawable/main_loading_anim"/>
 ``` 
 
-»ñÈ¡µ½ÊµÀıÖ®ºó£¬Ê¹ÓÃ startAnim£¨£© ºÍ  stopAnim() ¼´¿É¡£
+è·å–åˆ°å®ä¾‹ä¹‹åï¼Œä½¿ç”¨ startAnimï¼ˆï¼‰ å’Œ  stopAnim() å³å¯ã€‚
 
 
