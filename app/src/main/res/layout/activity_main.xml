@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zhengsr.ecloadingview.MainActivity">
+
+    <com.zhengsr.ecloadinglib.view.EcJumpLoadingView
+        android:id="@+id/ecloadview"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:ec_jump_bitmap_array="@array/image_array"
+        app:ec_jump_anim_time="500"
+        android:layout_gravity="center_horizontal"
+        app:ec_jump_shader_color="#515151"
+        />
+
+    <com.zhengsr.ecloadinglib.view.EcBitmapLoadingView
+        android:id="@+id/ecbitmaploadview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        app:ec_bitmap_anim_list="@drawable/main_loading_anim"/>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="EcJumpLoadingView">
+        <attr name="ec_jump_anim_time" format="integer"/>
+        <attr name="ec_jump_bitmap_array" format="integer|reference"/>
+        <attr name="ec_jump_shader_color" format="color|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="EcBitmapLoadingView">
+        <attr name="ec_bitmap_anim_list" format="reference"/>
+    </declare-styleable>
+</resources>
