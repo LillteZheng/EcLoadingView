@@ -23,7 +23,9 @@
 	}
 ```
 然后添加：
+```
  compile 'com.github.LillteZheng:EcLoadingView:v0.1'
+ ```
 
 第一种 xml 配置 , 其中 ec_jump_bitmap_array 是跳的图片：
 ```
