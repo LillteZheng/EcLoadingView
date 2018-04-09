@@ -6,9 +6,11 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.zhengsr.ecloadinglib.R;
+import com.zhengsr.ecloadinglib.utils.HandlerUtils;
 
 /**
  * Created by zhengshaorui on 2018/4/7.
@@ -50,5 +52,24 @@ public class EcBitmapLoadingView extends ImageView  {
         if (mAnimationDrawable != null){
             mAnimationDrawable.stop();
         }
+    }
+
+
+    @Override
+    protected void onWindowVisibilityChanged(final int visibility) {
+        super.onWindowVisibilityChanged(visibility);
+        // Log.d(TAG, "zsr --> onWindowVisibilityChanged: "+visibility);
+        HandlerUtils.handlePost(500, new HandlerUtils.handlerListener() {
+            @Override
+            public void post() {
+                if (visibility == View.VISIBLE){
+                    startAnim();
+                }else {
+                    stopAnim();
+                }
+            }
+        });
+
+
     }
 }

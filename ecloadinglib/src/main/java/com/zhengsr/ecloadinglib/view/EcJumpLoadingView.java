@@ -18,6 +18,7 @@ import android.view.animation.AccelerateInterpolator;
 
 import com.zhengsr.ecloadinglib.R;
 import com.zhengsr.ecloadinglib.utils.DimenUtils;
+import com.zhengsr.ecloadinglib.utils.HandlerUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ import java.util.List;
  * Created by zhengshaorui on 2018/4/7.
  */
 
-public class EcJumpLoadingView extends View {
+public class EcJumpLoadingView extends View  {
     private static final String TAG = "EcLoadingView";
     //const
     private static final int SHAPEOFFSERT = 20;
@@ -49,6 +50,8 @@ public class EcJumpLoadingView extends View {
     private List<Bitmap> mBitmapList = new ArrayList<>();
     private int mAnimTime ;
     private int mShaderColor;
+
+
 
     public EcJumpLoadingView(Context context) {
         this(context,null);
@@ -87,6 +90,7 @@ public class EcJumpLoadingView extends View {
         mShaderPaint = new Paint();
         mShaderPaint.setAntiAlias(true);
         mShaderPaint.setColor(mShaderColor);
+
 
     }
 
@@ -140,6 +144,7 @@ public class EcJumpLoadingView extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float value  = (float) animation.getAnimatedValue();
+               // Log.d(TAG, "zsr --> onAnimationUpdate: "+value);
                 if (value == desHeight){
                     if (mCurrentCount < mBitmapList.size() - 1){
                         mCurrentCount ++;
@@ -161,8 +166,10 @@ public class EcJumpLoadingView extends View {
     public void stopAnim(){
         if (mShapeAnim != null){
             mShapeAnim.cancel();
+
         }
     }
+
 
     /**
      * 画阴影
@@ -184,7 +191,26 @@ public class EcJumpLoadingView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         mWidth = DimenUtils.measureWidth(widthMeasureSpec);
         mHeight = DimenUtils.measureHeight(heightMeasureSpec);
-
         setMeasuredDimension(mWidth, mHeight);
+    }
+
+
+
+    @Override
+    protected void onWindowVisibilityChanged(final int visibility) {
+        super.onWindowVisibilityChanged(visibility);
+       // Log.d(TAG, "zsr --> onWindowVisibilityChanged: "+visibility);
+        HandlerUtils.handlePost(500, new HandlerUtils.handlerListener() {
+            @Override
+            public void post() {
+                if (visibility == View.VISIBLE){
+                    startAnim();
+                }else {
+                    stopAnim();
+                }
+            }
+        });
+
+
     }
 }

@@ -14,6 +14,21 @@
 
 ## **怎么样使用**
 
+在project 的 build.gradle :
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+然后添加：
+```
+ compile 'com.github.LillteZheng:EcLoadingView:v0.1'
+```
+
+
 第一种 xml 配置 , 其中 ec_jump_bitmap_array 是跳的图片：
 ```
  <com.zhengsr.ecloadinglib.view.EcJumpLoadingView
@@ -39,6 +54,6 @@
         app:ec_bitmap_anim_list="@drawable/main_loading_anim"/>
 ``` 
 
-获取到实例之后，使用 startAnim（） 和  stopAnim() 即可。
+
 
 
