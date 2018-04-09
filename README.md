@@ -9,7 +9,7 @@
 
 **第二种，仿蘑菇街加载动画**
 
-![image](https://github.com/LillteZheng/ViewPagerHelper/raw/master/gif/people.gif)
+![image](https://github.com/LillteZheng/EcLoadingView/raw/master/gif/people.gif)
 
 
 ## **怎么样使用**
@@ -17,11 +17,11 @@
 在project 的 build.gradle :
 ```
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 然后添加：
 ```
@@ -53,6 +53,8 @@ allprojects {
         android:layout_gravity="center_horizontal"
         app:ec_bitmap_anim_list="@drawable/main_loading_anim"/>
 ``` 
+
+在获取实例之后，也可以使用 startAnim() 和 stopAnim() 来开始或停止动画
 
 
 
