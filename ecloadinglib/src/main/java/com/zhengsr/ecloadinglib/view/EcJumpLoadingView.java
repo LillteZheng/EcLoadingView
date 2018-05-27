@@ -33,7 +33,11 @@ public class EcJumpLoadingView extends View  {
     private static final int SHAPEOFFSERT = 20;
     private static final int SHADERHEIGHT = 25;
     private static final float SCALE = 4.5f;
-    private static  Rect SHAPERECT; ;
+    private Rect mImageRect; ;
+    private static final int[] BITMAP_RESID = new int[]{
+            R.mipmap.ecloading_apple,R.mipmap.ecloading_hanbe,R.mipmap.ecloading_blue,
+            R.mipmap.ecloading_oragin,R.mipmap.ecloading_li,R.mipmap.ecloading_li_oragin
+    };
     //shape
     private int mMoveY = 0;
     private int mCurrentCount = 0;
@@ -49,8 +53,7 @@ public class EcJumpLoadingView extends View  {
     //attrs
     private List<Bitmap> mBitmapList = new ArrayList<>();
     private int mAnimTime ;
-    private int mShaderColor;
-
+    private RectF mShaderRectF;
 
 
     public EcJumpLoadingView(Context context) {
@@ -64,20 +67,14 @@ public class EcJumpLoadingView extends View  {
     public EcJumpLoadingView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.EcJumpLoadingView);
-        int bitmapRes = ta.getResourceId(R.styleable.EcJumpLoadingView_ec_jump_bitmap_array,0);
-        mShaderColor = ta.getColor(R.styleable.EcJumpLoadingView_ec_jump_shader_color,Color.BLACK);
-        mAnimTime = ta.getInteger(R.styleable.EcJumpLoadingView_ec_jump_anim_time,1000);
-        TypedArray bitmaptc = context.getResources().obtainTypedArray(bitmapRes);
-        int length = bitmaptc.length();
-        if (length == 0){
-            throw new RuntimeException("need set ecbitmap_array");
-        }
+        mAnimTime = ta.getInteger(R.styleable.EcJumpLoadingView_ec_jump_anim_time,500);
+
+
+        int length = BITMAP_RESID.length;
         for (int i = 0; i < length; i++) {
-            Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
-                    bitmaptc.getResourceId(i,0));
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),BITMAP_RESID[i]);
             mBitmapList.add(bitmap);
         }
-        bitmaptc.recycle();
         ta.recycle();
         init();
     }
@@ -89,9 +86,13 @@ public class EcJumpLoadingView extends View  {
 
         mShaderPaint = new Paint();
         mShaderPaint.setAntiAlias(true);
-        mShaderPaint.setColor(mShaderColor);
+        mShaderPaint.setColor(Color.parseColor("#515151"));
 
 
+    }
+
+    public void setAnimTime(int time){
+        mAnimTime = time;
     }
 
 
@@ -100,7 +101,7 @@ public class EcJumpLoadingView extends View  {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawShape(canvas);
+        drawImage(canvas);
         drawShader(canvas);
     }
 
@@ -108,7 +109,7 @@ public class EcJumpLoadingView extends View  {
      * 画不同的图片
      * @param canvas
      */
-    private void drawShape(Canvas canvas) {
+    private void drawImage(Canvas canvas) {
 
 
         canvas.save();
@@ -117,9 +118,9 @@ public class EcJumpLoadingView extends View  {
         int bwidth = (int) (mWidth * 1.0f / SCALE);
         int bheight = (int) (mHeight * 1.0f / SCALE);
         canvas.translate(mWidth/2 - bwidth / 2,mMoveY);
-        SHAPERECT = new Rect(0,SHAPEOFFSERT, bwidth ,
+        mImageRect = new Rect(0,SHAPEOFFSERT, bwidth ,
                 bheight + SHAPEOFFSERT);
-        canvas.drawBitmap(bitmap,null,SHAPERECT,null);
+        canvas.drawBitmap(bitmap,null, mImageRect,null);
         canvas.restore();
     }
 
@@ -131,7 +132,8 @@ public class EcJumpLoadingView extends View  {
             throw new RuntimeException("start anim too early,which height is 0");
         }
         final Bitmap bitmap = mBitmapList.get(mCurrentCount);
-        final int desHeight = mHeight - bitmap.getHeight()/2 - SHADERHEIGHT - 10;
+        final int desHeight = (int) (mHeight - mImageRect.bottom - (mHeight - mShaderRectF.top));
+
         if (mShapeAnim == null) {
             mShapeAnim = ValueAnimator.ofFloat(mMoveY, desHeight);
             mShapeAnim.setDuration(mAnimTime);
@@ -181,9 +183,9 @@ public class EcJumpLoadingView extends View  {
         float defaultheight = mHeight * 1.0f / SCALE;
         float shaderWidth =  defaultwidth - defaultwidth * mMoveY / mHeight ;
         float shaderHeight =  SHADERHEIGHT - SHADERHEIGHT * mMoveY / mHeight ;
-        RectF rectF = new RectF(mWidth/2 - shaderWidth/2,mHeight - defaultheight / 2,
+        mShaderRectF = new RectF(mWidth/2 - shaderWidth/2,mHeight - defaultheight / 2,
                 mWidth/2 + shaderWidth/2,mHeight - defaultheight / 2 +shaderHeight);
-        canvas.drawOval(rectF,mShaderPaint);
+        canvas.drawOval(mShaderRectF,mShaderPaint);
     }
 
     @SuppressLint("DrawAllocation")
@@ -210,7 +212,5 @@ public class EcJumpLoadingView extends View  {
                 }
             }
         });
-
-
     }
 }

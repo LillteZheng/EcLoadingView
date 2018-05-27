@@ -1,12 +1,5 @@
 <resources>
     <string name="app_name">EcLoadingView</string>
 
-    <integer-array name="image_array">
-        <item>@mipmap/v4</item>
-        <item>@mipmap/v5</item>
-        <item>@mipmap/v6</item>
-        <item>@mipmap/v7</item>
-        <item>@mipmap/v8</item>
-        <item>@mipmap/v9</item>
-    </integer-array>
+
 </resources>

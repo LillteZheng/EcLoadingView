@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.FrameLayout;
 
 import com.zhengsr.ecloadinglib.view.EcBitmapLoadingView;
 import com.zhengsr.ecloadinglib.view.EcJumpLoadingView;
@@ -21,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
         mEcJumpLoadingView = findViewById(R.id.ecloadview);
         mEcBitmapLoadingView = findViewById(R.id.ecbitmaploadview);
 
+
+        FrameLayout content = findViewById(R.id.content);
+
+
+
+        EcBitmapLoadingView view = new EcBitmapLoadingView(this);
+        content.addView(view);
 
     }
 

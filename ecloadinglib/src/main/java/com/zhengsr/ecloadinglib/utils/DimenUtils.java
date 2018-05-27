@@ -21,7 +21,7 @@ public class DimenUtils {
         if (specMode == View.MeasureSpec.EXACTLY) {
             result = specSize;
         } else {
-            result = 70; //如果是wrap_content ,给个初始值
+            result = 150; //如果是wrap_content ,给个初始值
             if (specMode == View.MeasureSpec.AT_MOST) {
                 result = Math.min(result, specSize);
             }
@@ -43,7 +43,7 @@ public class DimenUtils {
         if (specMode == View.MeasureSpec.EXACTLY) {
             result = specSize;
         } else {
-            result = 70; //如果是wrap_content ,给个初始值
+            result = 150; //如果是wrap_content ,给个初始值
             if (specMode == View.MeasureSpec.AT_MOST) {
                 result = Math.min(result, specSize);
             }

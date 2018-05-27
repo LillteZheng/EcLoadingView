@@ -1,20 +1,18 @@
 
-ÕâÊÇÒ»¸ö·â×°ºÃµÄ loading ¹¤¾ß¿â£¬ÄÚÖÃÁË³£¼ûÁË¼ÓÔØ¶¯»­£¬Ä¿Ç°ÕıÔÚÌí¼ÓÖĞ¡£¡£¡£¡£
+è¿™æ˜¯ä¸€ä¸ªå°è£…å¥½çš„ loading å·¥å…·åº“ï¼Œå†…ç½®äº†å¸¸è§äº†åŠ è½½åŠ¨ç”»ï¼Œç›®å‰æ­£åœ¨æ·»åŠ ä¸­ã€‚ã€‚ã€‚ã€‚
+
+**ç¬¬ä¸€ç§,ä»¿é¥¿äº†å—åŠ è½½åŠ¨ç”»**
+
+![image](https://user-gold-cdn.xitu.io/2018/5/27/1639eeb9c44dd5cc?w=216&h=162&f=gif&s=64674)
+
+**ä»¿è˜‘è‡è¡—åŠ è½½åŠ¨ç”»**
+
+![image](https://user-gold-cdn.xitu.io/2018/5/27/1639eeb9c6cd3e91?w=228&h=117&f=gif&s=97223)
 
 
+## **æ€ä¹ˆä½¿ç”¨**
 
-**µÚÒ»ÖÖ,·Â¶öÁËÂğ¼ÓÔØ¶¯»­**
-
-![image](https://github.com/LillteZheng/EcLoadingView/raw/master/gif/jump.gif)
-
-**µÚ¶şÖÖ£¬·ÂÄ¢¹½½Ö¼ÓÔØ¶¯»­**
-
-![image](https://github.com/LillteZheng/EcLoadingView/raw/master/gif/people.gif)
-
-
-## **ÔõÃ´ÑùÊ¹ÓÃ**
-
-ÔÚproject µÄ build.gradle :
+åœ¨project çš„ build.gradle :
 ```
 allprojects {
 	repositories {
@@ -23,38 +21,31 @@ allprojects {
 	}
 }
 ```
-È»ºóÌí¼Ó£º
+ç„¶åå…³è”å³å¯
 ```
- compile 'com.github.LillteZheng:EcLoadingView:v0.1'
+ compile 'com.github.LillteZheng:EcLoadingView:v0.2'
 ```
 
 
-µÚÒ»ÖÖ xml ÅäÖÃ , ÆäÖĞ ec_jump_bitmap_array ÊÇÌøµÄÍ¼Æ¬£º
+ç”±äºå›¾ç‰‡éƒ½æ˜¯å†…ç½®åˆ° lib ä¸­ï¼Œæ‰€ä»¥å¯ä»¥å¾ˆæ–¹ä¾¿çš„ä½¿ç”¨ï¼Œå¦‚æ°´æœåŠ¨ç”»ï¼Œå¯ä»¥è®¾ç½®æ—¶é—´ï¼š
+
 ```
- <com.zhengsr.ecloadinglib.view.EcJumpLoadingView
+  <com.zhengsr.ecloadinglib.view.EcJumpLoadingView
         android:id="@+id/ecloadview"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:ec_jump_bitmap_array="@array/image_array"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:ec_jump_anim_time="500"
         android:layout_gravity="center_horizontal"
-        app:ec_jump_shader_color="#515151"
         />
-``` 
-
-µÚ¶şÖÖ xml ÅäÖÃ , ÆäÖĞ ec_bitmap_anim_list Í¼Æ¬µÄ¶¯»­£º
 ```
-<com.zhengsr.ecloadinglib.view.EcBitmapLoadingView
-        android:id="@+id/ecbitmaploadview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        app:ec_bitmap_anim_list="@drawable/main_loading_anim"/>
-``` 
 
-ÔÚ»ñÈ¡ÊµÀıÖ®ºó£¬Ò²¿ÉÒÔÊ¹ÓÃ startAnim() ºÍ stopAnim() À´¿ªÊ¼»òÍ£Ö¹¶¯»­
+ä¹Ÿå¯ä»¥ç›´æ¥åœ¨ä»£ç ç›´æ¥å†™ï¼š
+```
+EcBitmapLoadingView view = new EcBitmapLoadingView(this);
+content.addView(view);
+```
+
+åœ¨è·å–å®ä¾‹ä¹‹åï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨ startAnim() å’Œ stopAnim() æ¥å¼€å§‹æˆ–åœæ­¢åŠ¨ç”»
 
 
 

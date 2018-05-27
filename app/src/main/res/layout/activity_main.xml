@@ -9,12 +9,10 @@
 
     <com.zhengsr.ecloadinglib.view.EcJumpLoadingView
         android:id="@+id/ecloadview"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:ec_jump_bitmap_array="@array/image_array"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:ec_jump_anim_time="500"
         android:layout_gravity="center_horizontal"
-        app:ec_jump_shader_color="#515151"
         />
 
     <com.zhengsr.ecloadinglib.view.EcBitmapLoadingView
@@ -24,7 +22,12 @@
         android:scaleType="centerCrop"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
-        app:ec_bitmap_anim_list="@drawable/main_loading_anim"/>
+       />
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="250dp"
+        android:layout_height="250dp"/>
 
 
 </LinearLayout>
