@@ -23,7 +23,7 @@ allprojects {
 ```
 然后关联即可
 ```
- compile 'com.github.LillteZheng:EcLoadingView:v0.2'
+ compile 'com.github.LillteZheng:EcLoadingView:v0.3'
 ```
 
 
